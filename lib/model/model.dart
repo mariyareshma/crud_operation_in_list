@@ -5,4 +5,6 @@ class SuperMarket {
   int? price;
   double? weight;
   Fruits? catagory;
+
+  SuperMarket(this.name, this.price, this.weight, this.catagory);
 }

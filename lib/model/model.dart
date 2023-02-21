@@ -3,9 +3,9 @@ class PersonDetail {
   int? age;
   String? id;
 
-  PersonDetail(
+  PersonDetail({
     this.name,
     this.age,
     this.id,
-  );
+  });
 }

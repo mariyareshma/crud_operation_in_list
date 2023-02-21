@@ -1,6 +1,5 @@
+import 'package:crud_operation_in_list/model/person_details.dart';
 import 'package:flutter/material.dart';
-
-import '../model/model.dart';
 
 class PersonWidget extends StatelessWidget {
   const PersonWidget({Key? key, this.person}) : super(key: key);

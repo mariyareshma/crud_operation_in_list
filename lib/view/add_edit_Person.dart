@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import '../model/model.dart';
 
-class AddEditItem extends StatefulWidget {
-  const AddEditItem({Key? key, this.person}) : super(key: key);
+class AddEditPerson extends StatefulWidget {
+  const AddEditPerson({Key? key, this.person}) : super(key: key);
   final PersonDetail? person;
 
   @override
-  AddEditItemState createState() => AddEditItemState();
+  AddEditPersonState createState() => AddEditPersonState();
 }
 
-class AddEditItemState extends State<AddEditItem> {
+class AddEditPersonState extends State<AddEditPerson> {
   final formkey = GlobalKey<FormState>();
   TextEditingController nameControler = TextEditingController();
   TextEditingController ageControler = TextEditingController();
@@ -83,9 +83,7 @@ class AddEditItemState extends State<AddEditItem> {
       keyboardType: TextInputType.name,
       validator: validateNumber,
       decoration: const InputDecoration(
-          icon: Icon(Icons.subject_outlined),
-          labelText: 'Enter name',
-          hintText: 'Name'),
+          icon: Icon(Icons.person), labelText: 'Enter name', hintText: 'Name'),
       controller: nameControler,
     );
   }
@@ -119,7 +117,7 @@ class AddEditItemState extends State<AddEditItem> {
                   style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontStyle: FontStyle.italic,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontSize: 20),
                 )),
               )),

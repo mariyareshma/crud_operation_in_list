@@ -3,16 +3,16 @@
 
 import '../model/model.dart';
 
-List<PersonDetail?> listofPersons = [];
+List<PersonDetail> allPersons = [];
 
 //create a function to add a Person to the list
 void addToPerson(PersonDetail personObj) {
-  listofPersons.add(personObj);
+  allPersons.add(personObj);
 }
 
 //create a function to delete a Person from the list
 void deleteFromPerson(PersonDetail personObj) {
-  listofPersons.remove(personObj);
+  allPersons.remove(personObj);
 }
 
 //create a function to edit a Person list

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'view/home_page.dart';
+
 class CrudApp extends StatelessWidget {
   const CrudApp({Key? key}) : super(key: key);
 
@@ -8,7 +10,7 @@ class CrudApp extends StatelessWidget {
     return MaterialApp(
       title: "Flutter Demo",
       theme: ThemeData(primarySwatch: Colors.yellow),
-      home: Container(),
+      home: const HomePage(),
     );
   }
 }

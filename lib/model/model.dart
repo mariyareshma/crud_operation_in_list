@@ -1,10 +1,11 @@
-import 'catagory.dart';
-
-class SuperMarket {
+class PersonDetails {
   String? name;
-  int? price;
-  double? weight;
-  Fruits? catagory;
+  int? age;
+  String? id;
 
-  SuperMarket(this.name, this.price, this.weight, this.catagory);
+  PersonDetails(
+    this.name,
+    this.age,
+    this.id,
+  );
 }

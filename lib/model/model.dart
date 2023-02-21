@@ -1,9 +1,9 @@
-class PersonDetails {
+class PersonDetail {
   String? name;
   int? age;
   String? id;
 
-  PersonDetails(
+  PersonDetail(
     this.name,
     this.age,
     this.id,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../model/model.dart';
+import '../model/person_details.dart';
 
 class AddEditPerson extends StatefulWidget {
   const AddEditPerson({Key? key, this.person}) : super(key: key);

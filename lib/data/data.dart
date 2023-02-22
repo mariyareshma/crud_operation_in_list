@@ -1,7 +1,7 @@
 //create a empty list
 //create a empty list
 
-import '../model/model.dart';
+import '../model/person_details.dart';
 
 List<PersonDetail> allPersons = [];
 

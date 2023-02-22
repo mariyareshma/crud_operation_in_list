@@ -1,8 +1,9 @@
 import 'package:crud_operation_in_list/view/person_widget.dart';
 import 'package:flutter/material.dart';
 import '../data/data.dart';
-import '../model/model.dart';
-import 'add_edit_Person.dart';
+
+import '../model/person_details.dart';
+import 'add_edit_person.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

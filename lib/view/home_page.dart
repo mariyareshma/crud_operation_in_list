@@ -61,13 +61,13 @@ class HomePageState extends State<HomePage> {
   }
 
   List<String> getSuggestion() {
-    var suggestion = <String>[];
+    var suggestions = <String>[];
     for (var person in allPersons) {
-      if (suggestion.contains(person.name) == false) {
-        suggestion.add(person.name!);
+      if (!suggestions.contains(person.name)) {
+        suggestions.add(person.name!);
       }
     }
-    return suggestion;
+    return suggestions;
   }
 
   @override
@@ -127,15 +127,6 @@ class HomePageState extends State<HomePage> {
               child: PersonWidget(person: e),
             ))
         .toList();
-  }
-
-  Widget searchBar() {
-    return TextField(
-      onChanged: (value) {
-        searchPerson = value;
-        applyFilter();
-      },
-    );
   }
 
   void applyFilter() {

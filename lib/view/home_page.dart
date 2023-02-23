@@ -1,4 +1,5 @@
 import 'package:crud_operation_in_list/view/person_widget.dart';
+import 'package:easy_search_bar/easy_search_bar.dart';
 import 'package:flutter/material.dart';
 import '../data/data.dart';
 
@@ -50,7 +51,7 @@ class HomePageState extends State<HomePage> {
 
   List<PersonDetail> filteredList = <PersonDetail>[];
 
-  var searchTerm = '';
+  var searchPerson = '';
 
   @override
   void initState() {
@@ -59,11 +60,30 @@ class HomePageState extends State<HomePage> {
     super.initState();
   }
 
+  List<String> getSuggestion() {
+    var suggestion = <String>[];
+    for (var person in allPersons) {
+      if (suggestion.contains(person.name) == false) {
+        suggestion.add(person.name!);
+      }
+    }
+    return suggestion;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Crud App'),
+      appBar: EasySearchBar(
+        title: const Text('Crud Search'),
+        suggestionTextStyle:
+            const TextStyle(fontWeight: FontWeight.normal, fontSize: 20),
+        suggestions: getSuggestion(),
+        onSearch: (value) async {
+          searchPerson = value;
+
+          applyFilter();
+          setState(() {});
+        },
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
@@ -79,18 +99,8 @@ class HomePageState extends State<HomePage> {
     );
   }
 
-  Column getBody() {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        searchBar(),
-        Expanded(
-          child: ListView(
-            children: getPersonWidgets(filteredList),
-          ),
-        ),
-      ],
-    );
+  Widget getBody() {
+    return ListView(children: getPersonWidgets(filteredList));
   }
 
   List<Widget> getPersonWidgets(List<PersonDetail> persons) {
@@ -110,6 +120,7 @@ class HomePageState extends State<HomePage> {
                 if (newPerson != null) {
                   setState(() {
                     editPerson(e, newPerson);
+                    applyFilter();
                   });
                 }
               },
@@ -120,15 +131,8 @@ class HomePageState extends State<HomePage> {
 
   Widget searchBar() {
     return TextField(
-      keyboardType: TextInputType.name,
-      decoration: const InputDecoration(
-        constraints: BoxConstraints(minWidth: 20, minHeight: 20),
-        hintText: 'search',
-        labelText: 'search',
-        icon: Icon(Icons.search),
-      ),
       onChanged: (value) {
-        searchTerm = value;
+        searchPerson = value;
         applyFilter();
       },
     );
@@ -138,8 +142,8 @@ class HomePageState extends State<HomePage> {
     setState(() {
       filteredList = allPersons
           .where((element) =>
-              element.age!.toString().contains(searchTerm) &&
-              element.name!.contains(searchTerm))
+              element.age!.toString().contains(searchPerson) &&
+              element.name!.contains(searchPerson))
           .toList();
     });
   }
